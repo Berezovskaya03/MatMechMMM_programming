@@ -2,13 +2,13 @@
 #include <iostream>
 using namespace std;
     int main() {
-        int a, b=0, d;
-        cin >> a;
-    d=a;
-    while ( a>0 ) {
+        int count, sum=0, d;
+        cin >> count;
+    d=count;
+    while ( d>0 ) {
             int c;
           cin >> c;
-          a =a-1;
-          b = b+ c*c*c;}
-    cout << b/d;
+          d=d-1;
+          sum = sum+ c*c*c;}
+    cout << sum/count;
     }
