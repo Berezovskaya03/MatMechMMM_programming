@@ -1,4 +1,4 @@
-//функция Аккермана
+//С„СѓРЅС†С†РёСЏ РђРєРєРµСЂРјР°РЅР°
 #include <iostream>
 using namespace std;
     int f(int m, int  n) {
