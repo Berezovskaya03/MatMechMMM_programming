@@ -20,9 +20,9 @@ m=m / gcd(m,n);
 n=n / gcd(m,n);
 return Rational(m ,n);
 }
-Rational operator/=(Rational A){
-m=m* A.n;
-n=n* A.m;
+Rational operator/=(Rational C){
+m=m* C.n;
+n=n* C.m;
 return Rational (m, n);
 }
 };
