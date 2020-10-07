@@ -1,4 +1,4 @@
-//структура Rational
+//функция сортировки массива, использующая указательную арифметикувместо обращения по индексам
 # include <iostream>
 using namespace std;
 int func(int *begin1, int count1) {
