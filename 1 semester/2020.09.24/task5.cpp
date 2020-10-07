@@ -1,3 +1,4 @@
+//структура Rational
 # include <iostream>
 using namespace std;
 int func(int *begin1, int count1) {
