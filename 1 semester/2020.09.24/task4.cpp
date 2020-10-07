@@ -1,3 +1,4 @@
+//реализация структуры  Rational
 #include <iostream>
 using namespace std;
 
