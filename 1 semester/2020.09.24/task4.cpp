@@ -1,17 +1,22 @@
 #include <iostream>
 using namespace std;
+
 int gcd (int a, int b){
-    if (b==a) return a;
+    if (b==0) return a;
     return gcd (b, a%b);}
-struct rational {
+
+struct Rational {
 int m;
 unsigned int n;
-rational (int x, unsigned int y) {
+Rational (int x, unsigned int y) {
 m=x/gcd(x,y);
-n=y/gcd (x,y);}
-}
+n=y/gcd (x,y);
+cout<<m<<"/"<<n;}
+};
+
 int main() {
-int numerator, s;
-unsigned int denominator;
-cin>>numerator>>denominator;
-cout<<rational s (numerator, denominator);}
+    int m;
+    unsigned int n;
+cin>>n >>m ;
+Rational (n, m);
+}
