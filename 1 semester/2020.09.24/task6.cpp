@@ -1,4 +1,4 @@
-//Функция удаляющая все четные элементы массива. Массив после выполнения уменьшает размер
+ //Функция удаляющая все четные элементы массива. Массив после выполнения уменьшает размер
 #include <iostream>
 
 using namespace std;
@@ -8,26 +8,18 @@ void del(int *aa,int *bb,int j){
     for(int *qq=aa;qq<pp;qq++){
         if((*qq)%(2)!=0){
             *c=*qq;
-            c++;
-    }
-}
-    delete []aa;
-}
+            c++;}}
+    delete []aa;}
 int main(){
-    int n=0;
+    int n;
     cin>>n;
     int *a= new int [n];
-    for(int i=0;i<n;cin >> a[i++]){}
+    for(int i=0;i<n;i++){cin >> a[i];}
     int *p=a+n;
     int k=0;
     for(int *q=a;q<p;q++){
         if(*q%2!=0){
-            k++;
-        }
-    }
+            k++;}}
     int *b=new int[k];
     del(a,b,n);
-    for(int i=0;i<k;cout << b[i++]<<endl){}
-    delete []b;
-    return 0;
-}
+    for(int i=0;i<k;i++){cout << b[i];}}
