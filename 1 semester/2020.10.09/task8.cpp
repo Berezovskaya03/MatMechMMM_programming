@@ -1,3 +1,4 @@
+// функция, записывающая в переданный массив все составные числа меньшие N
 #include <iostream>
 using namespace std;
 void numb (int *aa, int*bb, int n1) {
