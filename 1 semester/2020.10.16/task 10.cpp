@@ -1,4 +1,4 @@
-//возведение числа в степень по модулю
+//возведение числа в степень
 # include <iostream>
 using namespace std;
 int binpow (int x, int n) {
