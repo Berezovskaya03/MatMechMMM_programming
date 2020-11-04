@@ -1,3 +1,4 @@
+//функция нахождения kой порядковой статистики
 #include <iostream>
 #include <vector>
 using namespace std;
