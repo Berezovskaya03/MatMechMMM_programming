@@ -1,4 +1,4 @@
- //реализовать умножение карацубы для длинной арифметики
+ //СѓРјРЅРѕР¶РµРЅРёРµ РєР°СЂР°С†СѓР±С‹
 #include <iostream>
 #include <cstring>
 #include <cmath>
@@ -40,7 +40,7 @@ struct LongNumbers{
     ~LongNumbers(){
         delete[]Number;
     }
-};//структура для хранения длинный чисел в виде массива записанного в обратном порядке
+};//Г±ГІГ°ГіГЄГІГіГ°Г  Г¤Г«Гї ГµГ°Г Г­ГҐГ­ГЁГї Г¤Г«ГЁГ­Г­Г»Г© Г·ГЁГ±ГҐГ« Гў ГўГЁГ¤ГҐ Г¬Г Г±Г±ГЁГўГ  Г§Г ГЇГЁГ±Г Г­Г­Г®ГЈГ® Гў Г®ГЎГ°Г ГІГ­Г®Г¬ ГЇГ®Г°ГїГ¤ГЄГҐ
 istream& operator>>(istream& in, LongNumbers& A){
     char num[256];
     in.getline(num,256);
@@ -57,7 +57,7 @@ ostream& operator<<(ostream& os,const LongNumbers& A){
     }
     return os;
 }
-LongNumbers sum(LongNumbers A,LongNumbers B){ //суммирование двух чисел
+LongNumbers sum(LongNumbers A,LongNumbers B){ //Г±ГіГ¬Г¬ГЁГ°Г®ГўГ Г­ГЁГҐ Г¤ГўГіГµ Г·ГЁГ±ГҐГ«
     LongNumbers product;
     product.Size=A.Size+1;
 
@@ -74,12 +74,12 @@ LongNumbers sum(LongNumbers A,LongNumbers B){ //суммирование двух чисел
     product.Size=i;
     return product;
 }
-LongNumbers sub(LongNumbers a, LongNumbers b) { //вычитание двух чисел
+LongNumbers sub(LongNumbers a, LongNumbers b) { //ГўГ»Г·ГЁГІГ Г­ГЁГҐ Г¤ГўГіГµ Г·ГЁГ±ГҐГ«
   for (int i = 0; i < b.Size; ++i)
     a.Number[i] -= b.Number[i];
   return a;
 }
-void Normalize(LongNumbers &A){         //функция по приведению числа к нормальному виду
+void Normalize(LongNumbers &A){         //ГґГіГ­ГЄГ¶ГЁГї ГЇГ® ГЇГ°ГЁГўГҐГ¤ГҐГ­ГЁГѕ Г·ГЁГ±Г«Г  ГЄ Г­Г®Г°Г¬Г Г«ГјГ­Г®Г¬Гі ГўГЁГ¤Гі
     for(int i=0;i<A.Size-1;i++){
 
         if(A.Number[i]>=10){
@@ -91,12 +91,12 @@ void Normalize(LongNumbers &A){         //функция по приведению числа к нормальн
         }
     }
 }
-void DeleteUsefulNull(LongNumbers& A){//функция для удаления незначимых нулей
+void DeleteUsefulNull(LongNumbers& A){//ГґГіГ­ГЄГ¶ГЁГї Г¤Г«Гї ГіГ¤Г Г«ГҐГ­ГЁГї Г­ГҐГ§Г­Г Г·ГЁГ¬Г»Гµ Г­ГіГ«ГҐГ©
     int i = A.Size;
     for(;A.Number[i-1]==0;i--);
     A.Size=i;
 }
-LongNumbers karatsuba(LongNumbers a,LongNumbers b){ //умножение Карацубы
+LongNumbers karatsuba(LongNumbers a,LongNumbers b){ //ГіГ¬Г­Г®Г¦ГҐГ­ГЁГҐ ГЉГ Г°Г Г¶ГіГЎГ»
     LongNumbers product(a.Size+b.Size);
     if(a.Size<=2){
 
@@ -107,7 +107,7 @@ LongNumbers karatsuba(LongNumbers a,LongNumbers b){ //умножение Карацубы
         }
     }
     else {
-        LongNumbers a1((a.Size + 1) / 2); //первая часть числа а
+        LongNumbers a1((a.Size + 1) / 2); //ГЇГҐГ°ГўГ Гї Г·Г Г±ГІГј Г·ГЁГ±Г«Г  Г 
         for(int i = 0; i < a1.Size;i++){
             a1.Number[i]=a.Number[i];
         }
@@ -117,7 +117,7 @@ LongNumbers karatsuba(LongNumbers a,LongNumbers b){ //умножение Карацубы
             a2.Number[i]=a.Number[i+a1.Size];
         }
 
-        LongNumbers b1((b.Size + 1) / 2); //первая часть числа а
+        LongNumbers b1((b.Size + 1) / 2); //ГЇГҐГ°ГўГ Гї Г·Г Г±ГІГј Г·ГЁГ±Г«Г  Г 
         for(int i = 0; i < b1.Size;i++){
             b1.Number[i]=b.Number[i];
         }
@@ -126,21 +126,21 @@ LongNumbers karatsuba(LongNumbers a,LongNumbers b){ //умножение Карацубы
         for(int i = 0; i<b2.Size; i++){
             b2.Number[i]=b.Number[i+b1.Size];
         }
-        LongNumbers SumAparts = sum(a1, a2); //сумма частей а
+        LongNumbers SumAparts = sum(a1, a2); //Г±ГіГ¬Г¬Г  Г·Г Г±ГІГҐГ© Г 
         Normalize(SumAparts);
-        LongNumbers SumBparts = sum(b1, b2); //сумма частей b
+        LongNumbers SumBparts = sum(b1, b2); //Г±ГіГ¬Г¬Г  Г·Г Г±ГІГҐГ© b
         Normalize(SumBparts);
-        LongNumbers PSP = karatsuba(SumAparts, SumBparts); //произведение старшего члена
-        LongNumbers PfP = karatsuba(a1, b1);//произведение первый частей чисел
-        LongNumbers PsP = karatsuba(a2, b2);//произведение вторых частей чисел
-        LongNumbers SMP = sub(sub(PSP,PfP),PsP);//средний член
+        LongNumbers PSP = karatsuba(SumAparts, SumBparts); //ГЇГ°Г®ГЁГ§ГўГҐГ¤ГҐГ­ГЁГҐ Г±ГІГ Г°ГёГҐГЈГ® Г·Г«ГҐГ­Г 
+        LongNumbers PfP = karatsuba(a1, b1);//ГЇГ°Г®ГЁГ§ГўГҐГ¤ГҐГ­ГЁГҐ ГЇГҐГ°ГўГ»Г© Г·Г Г±ГІГҐГ© Г·ГЁГ±ГҐГ«
+        LongNumbers PsP = karatsuba(a2, b2);//ГЇГ°Г®ГЁГ§ГўГҐГ¤ГҐГ­ГЁГҐ ГўГІГ®Г°Г»Гµ Г·Г Г±ГІГҐГ© Г·ГЁГ±ГҐГ«
+        LongNumbers SMP = sub(sub(PSP,PfP),PsP);//Г±Г°ГҐГ¤Г­ГЁГ© Г·Г«ГҐГ­
         Normalize(SMP);
         memcpy(product.Number,PfP.Number,PfP.Size*sizeof(int));
-        //копирование младшего члена в окончательный объект
+        //ГЄГ®ГЇГЁГ°Г®ГўГ Г­ГЁГҐ Г¬Г«Г Г¤ГёГҐГЈГ® Г·Г«ГҐГ­Г  Гў Г®ГЄГ®Г­Г·Г ГІГҐГ«ГјГ­Г»Г© Г®ГЎГєГҐГЄГІ
         for(int i = 0; i < PsP.Size; i++){
             product.Number[i+a1.Size+b1.Size]+=PsP.Number[i];
-        }//копирование старшего члена в окончательный оюъект
-        for(int i = 0; i < SMP.Size; i++){//суммирование со средним членом
+        }//ГЄГ®ГЇГЁГ°Г®ГўГ Г­ГЁГҐ Г±ГІГ Г°ГёГҐГЈГ® Г·Г«ГҐГ­Г  Гў Г®ГЄГ®Г­Г·Г ГІГҐГ«ГјГ­Г»Г© Г®ГѕГєГҐГЄГІ
+        for(int i = 0; i < SMP.Size; i++){//Г±ГіГ¬Г¬ГЁГ°Г®ГўГ Г­ГЁГҐ Г±Г® Г±Г°ГҐГ¤Г­ГЁГ¬ Г·Г«ГҐГ­Г®Г¬
             product.Number[a1.Size+i]+=SMP.Number[i];
         }
     }
