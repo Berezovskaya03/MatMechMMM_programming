@@ -1,3 +1,4 @@
+//поиск наибольшей возрастающей подпоследовательности элементов, идущих в массиве подряд
 #include <iostream>
 #include <vector>
 using namespace std;
