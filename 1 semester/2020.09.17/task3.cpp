@@ -1,22 +1,18 @@
 //вычисление биномиального коэффицента из n по k
 #include <iostream>
 using namespace std;
-int get_res (int n,int k){
-    int den=max(n-k, k), del=1, result=1;
-    while (del<=min (n-k,k)) {
-        den=++den;
-        result=result*den/del;
-        del=++del;
+long double get_res (long n, long k){
+    if (k==n or k==0){return 1;
     }
-    while(den<n) {
-        den=++den;
-        result=result*den;
-}
-return result;
-}
+    if (k!=1) {
+        return get_res (n-1, k-1)*n/k;
+    }
+    else {
+        return n;
+    }
+    }
 int main(){
-    int n1,k1, coefficent;
+    long n1,k1;
     cin>> n1>>k1;
-    coefficent=get_res(n1,k1);
-    cout<< coefficent;
+    cout<< get_res(n1,k1);
 }
