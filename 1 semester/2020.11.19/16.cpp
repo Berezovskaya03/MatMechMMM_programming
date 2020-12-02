@@ -1,10 +1,11 @@
+//решение задачи о рюкзаке
 #include <iostream>
 #include <cmath>
 using namespace std;
 struct segments{
     int price;//x
     int weight;//y
-    int w;//�������� ���
+    int w;//óäåëüíûé âåñ
 };
 void quickSort(struct segments seg[], int left, int right) {
 int i = left, j = right;
