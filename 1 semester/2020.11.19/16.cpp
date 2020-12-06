@@ -2,17 +2,17 @@
 #include <cmath>
 using namespace std;
 struct segments{
-    int price;//x
-    int weight;//y
-    int w;//удельный вес
+    int price;
+    int w;
+    double specw;
 };
 void quickSort(struct segments seg[], int left, int right) {
 int i = left, j = right;
-int pivot = seg[(left + right) / 2].w;
+double pivot = seg[(left + right) / 2].specw;
 while (i <= j) {
-    while (seg[i].w < pivot){
+    while (seg[i].specw < pivot){
         i++;}
-    while (seg[j].w > pivot){
+    while (seg[j].specw > pivot){
         j--;}
     if (i <= j) {
         swap(seg[i],seg[j]);
@@ -28,25 +28,26 @@ if (i < right){
 }
 };
 
-int main() {
-    int n;
-    cin>>n;
-    int maxweight;
-    cin>>maxweight;
+int main(int argc, const char * argv[]) {
+    int n, maxw;
+    cin>>n>>maxw;
     struct segments seg[n];
     for(int i=0;i<n;i++){
         cin>>seg[i].price;
-        cin>>seg[i].weight;
-        seg[i].w=seg[i].price/seg[i].weight;
-        }
-        int mprice=0;
-    quickSort(seg, 0, n-1);
-    for(int i=n-1;(i>=0)&&(maxweight>0);i--){
-            if ((maxweight-seg[i].weight)>0) {
-                mprice+=seg[i].price;
-            }
-            else {mprice+=maxweight*seg[i].price;
-                } maxweight-=seg[i].weight;
+        cin>>seg[i].w;
+        seg[i].specw =(double)seg[i].price/seg[i].w;
     }
-    cout<<mprice;
+    quickSort(seg, 0, n-1);
+    cout<<endl;
+    double maxprice= 0;
+    for(int i = n-1;(i>=0)&&(maxw>=0);i--){
+            if ((maxw-seg[i].w)>=0) {
+                maxprice+=seg[i].price;
+            }
+            else {maxprice+=maxw*seg[i].specw;
+            }
+           maxw-=seg[i].w;
+        }
+    cout<<maxprice;
+    return 0;
 }
