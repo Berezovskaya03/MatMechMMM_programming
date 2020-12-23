@@ -11,4 +11,5 @@ using namespace std;
           d=d-1;
           sum = sum+ c*c*c;}
     cout << sum/count;
+    return 0;
     }

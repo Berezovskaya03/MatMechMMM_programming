@@ -10,4 +10,6 @@ using namespace std;
         int x, y;
         cin>> x>> y;
     int res= f(x, y);
-    cout<< res; }
+    cout<< res;
+    return 0;
+    }

@@ -15,4 +15,5 @@ int main(){
     long n1,k1;
     cin>> n1>>k1;
     cout<< get_res(n1,k1);
+    return 0;
 }

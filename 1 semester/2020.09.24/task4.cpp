@@ -2,28 +2,37 @@
 #include <iostream>
 using namespace std;
 
-int gcd (int a, int b){
+int gcd (int a, int b)
+{
     if (b==0) return a;
-    return gcd (b, a%b);}
+    return gcd (b, a%b);
+    }
 
 struct Rational {
 int m;
 unsigned int n;
-Rational (int x, int y) {
+Rational (int x, int y)
+ {
 m= x / gcd(x,y);
 n= y / gcd (x,y);
-cout<<m<<"/"<<n;}
+cout<<m<<"/"<<n;
+}
 Rational operator*=(Rational A) {
 m*=A.m;
 n*=A.n;
-m=m / gcd(m,n);
-n=n / gcd(m,n);
+m=m / gcd(A.m,A.n);
+n=n / gcd(A.m,A.n);
 return Rational(m ,n);
 }
-Rational operator/=(Rational C){
-m=m* C.n;
-n=n* C.m;
+Rational operator/=(Rational A){
+m*=A.n;
+n*=A.m;
+m=m / gcd(A.m,A.n);
+n=n / gcd(A.m,A.n);
 return Rational (m, n);
+}
+Rational operator+=(Rational A) {
+m*= gcd (n, A.n)
 }
 };
 
@@ -35,11 +44,8 @@ Rational A(m, n);
 cout<<endl;
 Rational B(a, b);
 cout<<endl;
-Rational C(m, n);
-cout<<endl;
-Rational D(a, b);
-cout<<endl;
 A.operator*=(B);
 cout<<endl;
-C.operator/=(D);
+A.operator/=(B);
+cout<<endl;
 }

@@ -1,26 +1,35 @@
-#include <iostream>/*Написать программу, находящую разложение натурального числа в сумму натуральных квадратов, с наименьшим числом слагаемых*/
+//поиск разложения натурального числа на сумму квадратов с наименьшим числом слагаемых
+#include <iostream>
 #include <cmath>
 using namespace std;
-bool lagrange(double number){
-    int k = (int)sqrt(number);
-    for(int a = 0; a<=k;a++){
-        for(int b = a; b<=k;b++){
-            for(int c = b; c<=k;c++){
-                for(int d = c; d<=k;d++){
-                    if(a*a+b*b+c*c+d*d==number){
-                        cout<<a<<"-"<<b<<"-"<<c<<"-"<<d<<endl;
-                        return true;
-                    }
-                }
-            }
-        }
-    }
-    return false;
+int main(){
+int n;
+cin>>n;
+int a[n];//количество множителей
+int counter=1;
+for (int i=1; i<=n; i++){
+  if  (i==(counter*counter)) {
+    a[i]=1;
+  ++counter;
+  }
+  else { int min=2147483647;
+  int sq=sqrt(i);
+    for (int j=1; j<=sq; j++){
+        if (a[i-j*j]<min) min=a[i-j*j];
+       }
+       a[i]=++min;
 }
-int main(int argc, const char * argv[]) {
-    int n;
-    cin>>n;
-    lagrange(n);
-    cout<<endl;
-    return 0;
+}
+int term;//каждое новое слагаемое
+while (a[n]!=1) {int min=2147483647;
+  int sq=sqrt(n);
+    for (int j=1; j<=sq; j++){
+        if (a[n-j*j]<min) {min=a[n-j*j];
+        term=j;
+       }
+    }
+    cout<<term<<" ";
+       n-=term*term;
+}
+cout<<sqrt(n);
 }
