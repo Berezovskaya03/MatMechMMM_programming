@@ -1,3 +1,5 @@
+//Написать недружественные функции, предоставляющие доступ к закрытым полям
+
 #include <iostream>
 #include "A.h"
 using namespace std;
