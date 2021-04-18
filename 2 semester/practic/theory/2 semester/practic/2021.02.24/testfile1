@@ -1,0 +1,12 @@
+#!/bin/bash
+make
+./myProg < test1_in.txt > test1_out.txt
+diff test1_out.txt test1_res.txt
+./myProg < test2_in.txt > test2_out.txt
+diff test2_out.txt test2_res.txt
+./myProg < test3_in.txt > test3_out.txt
+diff test3_out.txt test3_res.txt
+./myProg < test4_in.txt > test4_out.txt
+diff test4_out.txt test4_res.txt
+./myProg < test5_in.txt > test5_out.txt
+diff test5_out.txt test5_res.txt

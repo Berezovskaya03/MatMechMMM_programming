@@ -1,0 +1,4 @@
+/home/sonya/Рабочий стол/c projects/cmake_homework2021.03.16/CMakeFiles/rebuild_cache.dir
+/home/sonya/Рабочий стол/c projects/cmake_homework2021.03.16/CMakeFiles/sort.dir
+/home/sonya/Рабочий стол/c projects/cmake_homework2021.03.16/CMakeFiles/edit_cache.dir
+/home/sonya/Рабочий стол/c projects/cmake_homework2021.03.16/CMakeFiles/main.dir
