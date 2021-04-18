@@ -1,4 +1,5 @@
- #include <iostream> 
+//Реализовать класс Complex для работы с комплексными числами
+#include <iostream> 
 #include <cmath>
  using namespace std;
 class Complex
