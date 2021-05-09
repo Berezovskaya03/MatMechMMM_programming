@@ -1,18 +1,19 @@
+//реализация структуры циклического массвива
 #include <iostream>
 using namespace std;
 
 
-struct cArray {
+struct c_array {
 	int* data;
 	size_t size;
-	cArray(size_t N) {
+	c_array(size_t N) {
 		size = N;
 		data = new int[size];
 	}
-	~cArray() {
+	~c_array() {
 		delete[] data;
 	}
-	cArray(const cArray& A) {
+	c_array(const c_array& A) {
 		if (data) {
 			delete[] data;
 		}
@@ -22,7 +23,7 @@ struct cArray {
 			data[i] = A.data[i];
 		}
 	}
-	cArray operator=(const cArray& A) {
+	c_array operator=(const c_array& A) {
 		if (data) {
 			delete[] data;
 		}
@@ -44,12 +45,13 @@ struct cArray {
 int main() {
 	int N;
 	cin >> N;
-	cArray A(N);
+	c_array A(N);
 	for (int i = 0; i < N; i++) {
 		cin >> A[i];
 	}
-	for (int i = 0; i < 3 * N; i++) {
-		cout << A[i]<<" ";
-	}
+	int k;
+	cin>> k;
+	k+=N;
+		cout << A[k]<<" ";
 	return 0;
 }
