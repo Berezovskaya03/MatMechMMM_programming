@@ -3,55 +3,53 @@
 using namespace std;
 
 
-struct c_array {
+struct array {
 	int* data;
 	size_t size;
-	c_array(size_t N) {
-		size = N;
-		data = new int[size];
+public:
+	array(){
+	size=0;
+	data=NULL;
+}
+	array(size_t mysize){
+	size=mysize;
+	data=new int[mysize];
+}
+	~array(){
+	delete [] data;
+}
+	array(const array& a){
+	if (data) {delete[] data;}
+	size=a.size;
+	data=new int[size];
+	for (int i=0; i<size; i++){
+		data[i]=a.data[i];
 	}
-	~c_array() {
-		delete[] data;
+}
+	array& operator =(const array& a){
+	if(data) {delete[] data;}
+	size=a.size;
+	data=new int[size];
+	for(int i=0; i<size; i++){
+		data[i]=a.data[i];
 	}
-	c_array(const c_array& A) {
-		if (data) {
-			delete[] data;
-		}
-		size = A.size;
-		data = new int[size];
-		for (int i = 0; i < size; i++) {
-			data[i] = A.data[i];
-		}
-	}
-	c_array operator=(const c_array& A) {
-		if (data) {
-			delete[] data;
-		}
-		size = A.size;
-		data = new int[size];
-		for (int i = 0; i < size; i++) {
-			data[i] = A.data[i];
-		}
-		return *this;
-	}
-	int operator[](size_t i) const{
-		return data[i % size];
-	}
+	return *this;
+}
 	int& operator[](size_t i){
-		return data[i % size];
-	}
+	return data [i % size];
+}
 };
 
 int main() {
-	int N;
-	cin >> N;
-	c_array A(N);
-	for (int i = 0; i < N; i++) {
-		cin >> A[i];
+	int size;
+	cin >> size;
+	array a(size);
+	for (int i = 0; i < size; i++) {
+		cin >> a[i];
 	}
 	int k;
 	cin>> k;
-	k+=N;
-		cout << A[k]<<" ";
+	k+=size;
+		cout << a[k]<<" ";
 	return 0;
 }
