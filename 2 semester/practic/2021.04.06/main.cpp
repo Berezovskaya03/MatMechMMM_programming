@@ -1,4 +1,5 @@
- #include <iostream>
+//Шаблоны. Реализовать универсальный шаблон для контейнера Pair, содержащего пару любых объектов. 
+#include <iostream>
 using namespace std;
 
 template <class Ta, class Tb>
