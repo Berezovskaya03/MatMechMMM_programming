@@ -1,3 +1,4 @@
+//Реализовать вложенные пространства имен для работы с геометрией (0d, 1d, 2d, 3d) 
 #include <iostream> 
 #include <cmath>
  using namespace std;
