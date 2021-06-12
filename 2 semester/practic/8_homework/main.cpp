@@ -1,4 +1,5 @@
- #include <iostream> 
+//Реализовать обработку ошибок для программы из задачи 4, используя стандартные исключения
+#include <iostream> 
 #include <cmath>
  using namespace std;
 class Complex
