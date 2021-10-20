@@ -1,3 +1,4 @@
+//реализация наивного распараллеливания
 #include <iostream>
 #include <vector>
 #include <iterator>
