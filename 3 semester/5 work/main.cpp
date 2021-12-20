@@ -1,4 +1,4 @@
-//j;blfybt gjktnf cfvjktnf
+//имитация ожидания в аэропорте вылета
 #include <future>
 #include <iostream>
 using namespace std;
